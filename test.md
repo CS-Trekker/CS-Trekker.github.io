@@ -1,1 +1,1 @@
-Though I have a very unique idea,but I won't tell you.
+Though I have a unique idea,I won't tell you.
