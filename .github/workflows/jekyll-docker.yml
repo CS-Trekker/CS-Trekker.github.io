@@ -1,14 +1,12 @@
-# .github/workflows/blank.yml
-
 name: ShellCheck
 
 on:
   push:
     paths:
-      - '**.sh'
+      - '**/*.sh'  # 改成这样，确保匹配子目录下的所有 .sh 文件
   pull_request:
     paths:
-      - '**.sh'
+      - '**/*.sh'
 
 jobs:
   shellcheck:
