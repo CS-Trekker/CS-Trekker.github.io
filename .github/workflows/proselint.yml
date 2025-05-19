@@ -1,0 +1,44 @@
+name: Proselint Markdown Check
+
+on:
+  push:
+    paths:
+      - '**/*.md'
+  pull_request:
+    paths:
+      - '**/*.md'
+
+jobs:
+  lint-markdown:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install proselint
+        run: |
+          pip install proselint
+
+      - name: Find and lint all markdown files
+        run: |
+          echo "Linting the following markdown files:"
+          find . -name "*.md"
+          echo
+
+          # Run proselint on each markdown file
+          FAIL=0
+          for file in $(find . -name "*.md"); do
+            echo "Checking $file"
+            if ! proselint "$file"; then
+              FAIL=1
+            fi
+          done
+
+          # Exit with 1 if any file failed
+          exit $FAIL
