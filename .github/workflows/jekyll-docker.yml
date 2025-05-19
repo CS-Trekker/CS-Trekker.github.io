@@ -1,28 +1,21 @@
-name: Jekyll site CI
+# .github/workflows/blank.yml
+
+name: ShellCheck
 
 on:
   push:
-    branches: [ "main" ]
+    paths:
+      - '**.sh'
   pull_request:
-    branches: [ "main" ]
+    paths:
+      - '**.sh'
 
 jobs:
-  build:
+  shellcheck:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Build the site in the jekyll/builder container
-      run: |
-        docker run \
-          -v ${{ github.workspace }}:/srv/jekyll \
-          -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-          jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
-
-    - name: List all shell scripts found
-      run: find . -type f -name '*.sh'
-
-    - name: Run ShellCheck on all shell scripts
-      uses: ludeeus/action-shellcheck@2.0.0
-      with:
-        shellcheck_args: "--enable=all"
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@2.0.0
