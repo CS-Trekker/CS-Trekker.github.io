@@ -22,7 +22,7 @@ jobs:
     - name: List all shell scripts found
       run: find . -type f -name '*.sh'
 
-    - name: Run ShellCheck on all .sh files
+    - name: Run ShellCheck on all shell scripts
       uses: ludeeus/action-shellcheck@2.0.0
       with:
-        files: "$(find . -type f -name '*.sh' | tr '\n' ' ')"
+        shellcheck_args: "--enable=all"
