@@ -1,2 +1,3 @@
 #!/usr/bin/bash
-echo "hello"
+ho "hello"
+jdkajf
