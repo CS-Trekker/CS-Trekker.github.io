@@ -1,34 +1,116 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>我的个人主页</title>
     <style>
+        @font-face {
+            font-family: 'LXGWWenKai';
+            src: url('./fonts/LXGWWenKai-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
-            font-family: "微软雅黑", Arial, sans-serif;
-            background-color: #f9f9f9;
+            font-family: 'LXGWWenKai', "微软雅黑", Arial, sans-serif;
+            background: linear-gradient(135deg, #a0c1ff, #f0f4ff);
+            margin: 0;
+            padding: 0;
             color: #333;
-            padding: 20px;
         }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            border-bottom: 3px solid #0059b3;
+            background: rgba(255 255 255 / 0.8);
+            backdrop-filter: blur(6px);
+        }
+
         h1 {
-            color: #007acc;
+            font-size: 3rem;
+            margin: 0 0 10px;
+            color: #0059b3;
         }
-        ul {
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #444;
+            margin: 0;
+        }
+
+        main {
+            max-width: 700px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px 40px;
+        }
+
+        ul.info-list {
             list-style-type: square;
+            padding-left: 20px;
+            font-size: 1.15rem;
         }
-        li {
-            margin-bottom: 5px;
+
+        ul.info-list li {
+            margin-bottom: 14px;
+        }
+
+        .social-links {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 12px;
+            padding: 10px 18px;
+            color: #0059b3;
+            font-weight: 600;
+            border: 2px solid #0059b3;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: #0059b3;
+            color: #fff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #777;
+            font-size: 0.9rem;
         }
     </style>
 </head>
-<body>
-    <h1>欢迎来到我的网站</h1>
-    <p>这是我的第一个GitHub Pages网站。</p>
-    <ul>
-        <li>姓名：HH</li>
-        <li>专业：大数据管理与应用</li>
-        <li>爱好：电影、吉他、健身、篮球、编程</li>
-    </ul>
-</body>
-</html>
 
+<body>
+    <header>
+        <h1>欢迎来到我的网站</h1>
+        <p class="subtitle">这是我的第一个GitHub Pages网站</p>
+    </header>
+    <main>
+        <ul class="info-list">
+            <li><strong>姓名：</strong>HH</li>
+            <li><strong>专业：</strong>大数据管理与应用</li>
+            <li><strong>爱好：</strong>电影、吉他、健身、篮球、编程</li>
+        </ul>
+        <div class="social-links">
+            <a href="https://github.com/你的用户名" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://weibo.com/你的用户名" target="_blank" rel="noopener noreferrer">微博</a>
+            <a href="mailto:你的邮箱@example.com">邮箱</a>
+        </div>
+    </main>
+    <footer>
+        &copy; 2025 HH 版权所有
+    </footer>
+</body>
+
+</html>
