@@ -41,6 +41,46 @@
             margin: 0;
         }
 
+        .quote-section {
+            background: rgba(248, 250, 252, 0.95);
+            margin: 30px 0;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            border-left: 4px solid #0059b3;
+        }
+
+        .quote-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #2c3e50;
+            margin: 0 0 10px;
+            line-height: 1.6;
+        }
+
+        .quote-author {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin: 0;
+        }
+
+        .refresh-btn {
+            background: #0059b3;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .refresh-btn:hover {
+            background: #004494;
+        }
+
         main {
             max-width: 700px;
             margin: 40px auto;
@@ -94,23 +134,47 @@
 <body>
     <header>
         <h1>欢迎来到我的网站</h1>
-        <p class="subtitle">这是我的第一个GitHub Pages网站</p>
+        <p class="subtitle">这是我的GitHub Pages网站</p>
     </header>
+
     <main>
         <ul class="info-list">
             <li><strong>姓名：</strong>HH</li>
             <li><strong>专业：</strong>大数据管理与应用</li>
             <li><strong>爱好：</strong>电影、吉他、健身、篮球、编程</li>
         </ul>
+
+        <div class="quote-section">
+            <p class="quote-text" id="quote-text">正在加载格言...</p>
+            <p class="quote-author" id="quote-author"></p>
+            <button class="refresh-btn" onclick="showRandomQuote()">换一句</button>
+        </div>
+
         <div class="social-links">
             <a href="https://github.com/CS-Trekker" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href="mailto:2400016629hh@gmail.com">邮箱</a>
-            <a href="https://www.linkedin.com/in/huhaopku/" target="_blank" rel="noopener noreferrer">领英</a>
+            <a href="https://www.linkedin.com/in/trekker/" target="_blank" rel="noopener noreferrer">领英</a>
         </div>
     </main>
     <footer>
         &copy; 2025 HH 版权所有
     </footer>
+
+    <!-- 引入格言数据 -->
+    <script src="./data/quotes.js"></script>
+    <script>
+        // 显示随机格言
+        function showRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const quote = quotes[randomIndex];
+
+            document.getElementById('quote-text').textContent = quote.text;
+            document.getElementById('quote-author').textContent = `— ${quote.author}`;
+        }
+
+        // 页面加载时显示第一句格言
+        window.addEventListener('load', showRandomQuote);
+    </script>
 </body>
 
 </html>
